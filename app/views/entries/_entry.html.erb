@@ -9,4 +9,12 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+   <% if entry.comments.any? %>
+      <ol class="comments">
+        <%= render entry.comments %>
+      </ol>
+    <% end %>
+    <section class="entry_form">
+        
+      </section>
 </li>
