@@ -5,14 +5,18 @@ class CommentsController < ApplicationController
   def new
      @comment = Comment.new
   end
+  def index
+     @comment = Comment.new
+  end
   def create
     @comment = current_user.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.entry_id = params[:entry_id].to_i
+ 
     if @comment.save
     respond_to do |format|
       format.html { redirect_to @comment }
-      format.js {render inline: "location.reload();" }
+      format.js
     end
     else
       render 'static_pages/home'

@@ -11,7 +11,9 @@
   </span>
    <% if entry.comments.any? %>
       <ol class="comments">
-        <%= render entry.comments %>
+         <div class="entrycomment-<%= entry.id %>">
+        	<%= render entry.comments %>
+        </div>
       </ol>
     <% end %>
     <% if logged_in? %>

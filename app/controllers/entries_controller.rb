@@ -2,6 +2,9 @@ class EntriesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
+    def show
+      @entries = @user.entries.paginate(page: params[:page])
+    end
    def create
     @entry = current_user.entries.build(entry_params)
     if @entry.save
@@ -14,7 +17,7 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    @entry.destroy
+    @entry.destroy  
     flash[:success] = "Entry deleted"
     redirect_to request.referrer || root_url
   end

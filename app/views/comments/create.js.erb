@@ -1,0 +1,3 @@
+var id = <%= @comment.entry_id %>;
+
+$("<%= escape_javascript(render('shared/entry_reload')) %>").prependTo(".entrycomment-"+id);

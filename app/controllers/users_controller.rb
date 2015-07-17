@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
    @entries = @user.entries.paginate(page: params[:page])
-    @comment = Comment.new
+   @comment = Comment.new
   end
 
    def create
