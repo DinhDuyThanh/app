@@ -23,10 +23,10 @@
 	        <div style="display:none">
 	        <%= submit_tag entry.id, :name => 'entry_id' %>
 	       </div>
-	       <span class="form-control">
+	       <span class="form-control"  style="width:500px">
 	         <%= f.text_field :content , placeholder: "Compose new comment..." %>
 	      </span>
-	      <span class="input-group-btn">
+	      <span class="input-group-btn" style="display:none">
 	         <%= f.submit "Comment", class: "btn btn-primary" %>
 	      </span>
 	    </div>
