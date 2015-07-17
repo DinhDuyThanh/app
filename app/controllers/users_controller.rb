@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
    @entries = @user.entries.paginate(page: params[:page])
-   @comments = @user.comments.paginate(page: params[:page])
+    @comment = Comment.new
   end
 
    def create
@@ -65,8 +65,7 @@ class UsersController < ApplicationController
     def logged_in_user
       unless logged_in?
         store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
+        flash[:danger] = "Please log in to comment."
       end
      end
      

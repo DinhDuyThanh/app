@@ -14,7 +14,24 @@
         <%= render entry.comments %>
       </ol>
     <% end %>
-    <section class="entry_form">
-        
-      </section>
+    <% if logged_in? %>
+    <section>
+  <%= form_for(@comment, remote: true) do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+	  <div class="col-lg-6" style="width:500px">
+	    <div class="input-group" style="padding-left:35px">
+	        <div style="display:none">
+	        <%= submit_tag entry.id, :name => 'entry_id' %>
+	       </div>
+	       <span class="form-control">
+	         <%= f.text_field :content , placeholder: "Compose new comment..." %>
+	      </span>
+	      <span class="input-group-btn">
+	         <%= f.submit "Comment", class: "btn btn-primary" %>
+	      </span>
+	    </div>
+	  </div>
+<% end %>  	
+     </section>
+     <% end %>  
 </li>
